@@ -18,20 +18,25 @@
 
     $(document).ready( function() {
 
-        $.ajax({
-          type: 'POST',
-         url: 'response.php',
-		  //url: 'http://promo.fabiohome.ru/test',
-		  //data: {"begin":"20170505","end":"20170606"},
-		  //dataType: 'json',
-		 // crossDomain: true,
-          success: function(data){
-            $('.results').html(data);
-          },
-		  error: function(data) {
-			$('.results').html(data);
-		  }
-        });
+        var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://promo.fabiohome.ru/test",
+  "method": "POST",
+  "headers": {
+    "cache-control": "no-cache",
+    "content-type": "application/x-www-form-urlencoded"
+  },
+  "data": {
+    "begin": "2017/01/09",
+    "end": "2017/09/15"
+  }
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+alert(response);
+});
 
     });
 
