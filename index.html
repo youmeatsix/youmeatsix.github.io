@@ -1,280 +1,55 @@
-<style>
+<!DOCTYPE html>
+<html lang="ru" >
+    <head>
+        <meta charset="utf-8" />
 
-* {
-	padding: 0;
-	margin: 0;
-}
+		<script src="js/jquery.min.js" type="text/javascript"></script>
+		
+    </head>
+    <body>
 
-body {
-	font-family: Tahoma;
-	width: 100%;
-	height: 100%;
-}
+		
+   <div class="results"></div>
 
-.header {
-	width: 100%;
-	height: 100px;
-	background-color: #ccc;
-	vertical-align: bottom;
-	box-sizing:border-box;
-	padding: 20px 50px;
-}
-button {
-	padding: 5px 10px;
-	background-color: blue;
-	color: #fff;
-}
-input {
-	float: right;
-}
-#calendar {
-	width: 100%;
-	max-width: 1024px;
-	display: grid;
-	grid-template-columns: repeat(7, 1fr);
-	margin: 0 auto;
-	padding: 50px 50px;
-}
-
-#calendar tr, #calendar tbody {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
- width: 100%;
-}
+    <script language="javascript" type="text/javascript">
 
 
-#calendar a {
-	color: #8e352e;
-	text-decoration: none;
-}
+    $(document).ready( function() {
 
-#calendar td, #calendar th {
-	padding: 5px;
-	box-sizing:border-box;
-	border: 1px solid #ccc;
-}
+        $.ajax({
+          type: 'POST',
+         url: 'response.php',
+		  //url: 'http://promo.fabiohome.ru/test',
+		  data: {"begin":"20170505","end":"20170606"},
+		  //dataType: 'json',
+		 // crossDomain: true,
+          success: function(data){
+            $('.results').html(data);
+          },
+		  error: function(data) {
+			$('.results').html(data);
+		  }
+        });
+		
+		
+		/*
+		$.ajax({
+			dataType: 'json',
+			url: 'response.php',
+			success: function(jsondata){
+			$('.results').html(jsondata.data + ', ' + jsondata.rate);
+		}
+		
+		/*
+});
 
+*/
+    });
 
-
-#calendar td {
-	min-height: 180px;
-  display: flex;
-  flex-direction: column;
-}
-
-#calendar .days li:hover {
-	background: #d3d3d3;
-}
-
-#calendar .date {
-	text-align: center;
-	margin-bottom: 5px;
-	padding: 4px;
-	color: #ссс;
-  flex: 0 0 auto;
-  align-self: flex-end;
-}
-
-#calendar .event {
-  flex: 0 0 auto;
-	font-size: 13px;
-	border-radius: 4px;
-	padding: 5px;
-	margin-bottom: 5px;
-	line-height: 14px;
-	background: #e4f2f2;
-	border: 1px solid #b5dbdc;
-	color: #009aaf;
-	text-decoration: none;
-}
-
-#calendar .event-desc {
-	color: #666;
-	margin: 3px 0 7px 0;
-	text-decoration: none;	
-}
-
-
-
-@media(max-width: 768px) {
-
-#calendar {
-	padding: 10px 0px;
-}
-.weekday {
-	display: none;  
-}
-
-	#calendar .weekdays, #calendar .other-month {
-		display: none;
-	}
-
-	#calendar li {
-		height: auto !important;
-		border: 1px solid #ededed;
-		width: 100%;
-		padding: 10px;
-		margin-bottom: -1px;
-	}
-  
-  #calendar, #calendar tr, #calendar tbody {
-    grid-template-columns: 1fr;
-  }
-  
-  #calendar  tr {
-    grid-column: 1 / 2;
-  }
-
-	#calendar .date {
-		align-self: flex-start;
-	}
-}
-</style>
-<div class="header">
-	<button>Добавить</button>
-	<button>Обновить</button>
-	<input type="search" placeholder="Событие, дата или участник" />
-</div>
-<table id="calendar">
-  <caption><span> < </span><span>Март 2013</span><span> > </span><span>Сегодня</span></caption>
-  <tr class="days">
-	<td class="day">
-      <div class="date"><span class="weekday">Понедельник, </span>25</div>
-    </td>
-    <td class="day">
-      <div class="date"><span class="weekday">Вторник, </span>26</div>
-    </td>
-    <td class="day">
-      <div class="date"><span class="weekday">Среда, </span>27</div>
-    </td>
-    <td class="day">
-      <div class="date"><span class="weekday">Четверг, </span>28</div>
-    </td>
-    <td class="day">
-      <div class="date"><span class="weekday">Пятница, </span>1</div>
-    </td>
-    <td class="day">
-      <div class="date"><span class="weekday">Суббота, </span>2</div>
-    </td>
-	<td class="day">
-      <div class="date"><span class="weekday">Воскресенье, </span>3</div>
-    </td>
-  </tr>
-  <tr>
-    
-    <td class="day">
-      <div class="date">4</div>
-    </td>
-    <td class="day">
-      <div class="date">5</div>
-    </td>
-    <td class="day">
-      <div class="date">6</div>
-    </td>
-    <td class="day">
-      <div class="date">7</div>
-    </td>
-    <td class="day">
-      <div class="date">8</div>
-    </td>
-    <td class="day">
-      <div class="date">9</div>
-	  <div class="event">
-        <div class="event-desc">
-          Напиться!
-        </div>
-        <div class="event-time">
-          Витя Костин, Петр Михайлов
-        </div>
-      </div>
-    </td>
-	<td class="day">
-      <div class="date">10</div>
-    </td>
-  </tr>
-  
-  
-  <tr>
-    <td class="day">
-      <div class="date">11</div>
-    </td>
-    <td class="day">
-      <div class="date">12</div>
-    </td>
-    <td class="day">
-      <div class="date">13</div>
-    </td>
-    <td class="day">
-      <div class="date">14</div>
-    </td>
-    <td class="day">
-      <div class="date">15</div>
-    </td>
-    <td class="day">
-      <div class="date">16</div>
-    </td>
-	<td class="day">
-      <div class="date">17</div>
-    </td>
-  </tr>
-  
-  <tr>
-    <td class="day">
-      <div class="date">18</div>
-    </td>
-    <td class="day">
-      <div class="date">19</div>
-    </td>
-    <td class="day">
-      <div class="date">20</div>
-    </td>
-    <td class="day">
-      <div class="date">21</div>
-    </td>
-    <td class="day">
-      <div class="date">22</div>
-      <div class="event">
-        <div class="event-desc">
-          ДР!
-        </div>
-        <div class="event-time">
-          Дима Молодцов
-        </div>
-      </div>
-    </td>
-    <td class="day">
-      <div class="date">23</div>
-    </td>
-	<td class="day">
-      <div class="date">24</div>
-    </td>
-  </tr>
-  
-  
-  <tr>
-    <td class="day">
-      <div class="date">25</div>
-    </td>
-    <td class="day">
-      <div class="date">26</div>
-    </td>
-    <td class="day">
-      <div class="date">27</div>
-    </td>
-    <td class="day">
-      <div class="date">28</div>
-    </td>
-    <td class="day">
-      <div class="date">29</div>
-    </td>
-    <td class="day">
-      <div class="date">30</div>
-    </td>
-	<td class="day">
-      <div class="date">31</div>
-    </td>
-  </tr>
+    </script>
 
   
-</table>
+
+
+    </body>
+</html>
