@@ -8,17 +8,17 @@
     </head>
     <body>
 
+   <button name="sample2" class="sample2">Кнопка</button>
    <div class="results">Ждем ответа</div>
 
     <script language="javascript" type="text/javascript">
 
 
-    $(document).ready( function() {
+    $('.sample2').click( function() {
 
-        
-	    $.ajax({
+        $.ajax({
           type: 'POST',
-         url: 'response.php',
+         url: '/response.php',
 		  //url: 'http://promo.fabiohome.ru/test',
 		  data: {"begin":"20170505","end":"20170606"},
 		  //dataType: 'json',
@@ -30,7 +30,6 @@
 			$('.results').html(data);
 		  }
         });
-	    
 
     });
 
