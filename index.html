@@ -16,13 +16,13 @@
     <script language="javascript" type="text/javascript">
 
 
-    $('.sample2').click( function() {
+    $(document).ready( function() {
 
         $.ajax({
           type: 'POST',
          url: 'response.php',
 		  //url: 'http://promo.fabiohome.ru/test',
-		  data: {"begin":"20170505","end":"20170606"},
+		  //data: {"begin":"20170505","end":"20170606"},
 		  //dataType: 'json',
 		 // crossDomain: true,
           success: function(data){
