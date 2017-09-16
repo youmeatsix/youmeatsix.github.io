@@ -190,41 +190,40 @@ div.calendar li .x0:before{
 	content: "";
 }
 div.calendar li .x0:after{
-	content: "🟊🟊🟊🟊🟊";
+	content: "\2605 \2605 \2605 \2605 \2605";
 	color: #ccc;
 }
 div.calendar li .x1:before{
-	content: "🟊";
+	content: "\2605";
 }
 div.calendar li .x1:after{
-	content: "🟊🟊🟊🟊";
+	content: "\2605 \2605 \2605 \2605";
 	color: #ccc;
 }
 div.calendar li .x2:before{
-	content: "🟊🟊";
+	content: "\2605 \2605";
 }
 div.calendar li .x2:after{
-	content: "🟊🟊🟊";
+	content: "\2605 \2605 \2605";
 	color: #ccc;
 }
 div.calendar li .x3:before{
-	content: "🟊🟊🟊";
+	content: "\2605 \2605 \2605";
 }
 div.calendar li .x3:after{
-	content: "🟊🟊";
+	content: "\2605 \2605";
 	color: #ccc;
 }
 div.calendar li .x4:before{
-	content: "🟊🟊🟊🟊";
+	content: "\2605 \2605 \2605 \2605";
 }
 div.calendar li .x4:after{
-	content: "🟊";
+	content: "\2605";
 	color: #ccc;
 }
 div.calendar li .x5:before{
-	content: "🟊🟊🟊🟊🟊";
+	content: "\2605 \2605 \2605 \2605 \2605";
 }
-
   
 
 @media (min-width: 1025px) {
